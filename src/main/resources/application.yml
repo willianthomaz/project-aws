@@ -1,6 +1,6 @@
 amazonProperties:
     endpointUrl: https://projects33381.s3.amazonaws.com
-    accessKey: re
+    accessKey:
     secretKey:
     bucketName:
     region: us-east-1
