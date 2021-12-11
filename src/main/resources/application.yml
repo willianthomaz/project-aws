@@ -1,0 +1,12 @@
+amazonProperties:
+    endpointUrl: https://projects33381.s3.amazonaws.com
+    accessKey: re
+    secretKey:
+    bucketName:
+    region: us-east-1
+
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 100MB
+      maxRequestSize: 100MB
