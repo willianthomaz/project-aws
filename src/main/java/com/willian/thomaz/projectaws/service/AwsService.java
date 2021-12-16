@@ -24,7 +24,7 @@ public class AwsService {
     private AmazonS3 s3client;
 
     public void uploadFile(MultipartFile multipartFile, String folder) throws IOException {
-        File file = new File(multipartFile.getOriginalFilename());
+        File file = convert(multipartFile);
         String fileName = multipartFile.getOriginalFilename();
         uploadFileTos3bucket(fileName, folder, file);
     }
@@ -39,5 +39,13 @@ public class AwsService {
 
     public URL linkS3(String fileName, String folder) {
         return s3client.getUrl(bucketName, folder + "/" + fileName);
+    }
+
+    public File convert(MultipartFile multipartFile) throws IOException {
+        File file = new File(multipartFile.getOriginalFilename());
+        FileOutputStream fileOutputStream = new FileOutputStream(file);
+        fileOutputStream.write(multipartFile.getBytes());
+        fileOutputStream.close();
+        return file;
     }
 }
